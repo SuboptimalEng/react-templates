@@ -4,7 +4,7 @@
 - TypeScript
 - Redux (counter example)
 - Tailwind CSS (toggle themes + opacity)
-- Electron Desktop App
+- Electron Desktop App (IPC included)
 
 ## Getting Started
 
