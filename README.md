@@ -1,2 +1,2 @@
 # 📜 React Templates
-A collection of starter templates for React + TypeScript.
+A collection of starter templates with React + TypeScript.
