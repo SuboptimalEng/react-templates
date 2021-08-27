@@ -51,12 +51,12 @@ function App() {
           </div>
           <img src={logo} className="App-logo w-60" alt="logo" />
           <img
-            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/orb/abc.jpg"
+            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/abc.jpg"
             alt="logo"
             className="w-80"
           ></img>
           <video
-            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/orb/steve_jobs_demo.mp4"
+            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/steve_jobs_demo.mp4"
             className="w-80"
             controls
           ></video>
