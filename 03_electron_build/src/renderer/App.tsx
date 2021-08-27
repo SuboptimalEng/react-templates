@@ -50,6 +50,16 @@ function App() {
             </div>
           </div>
           <img src={logo} className="App-logo w-60" alt="logo" />
+          <img
+            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/orb/abc.jpg"
+            alt="logo"
+            className="w-80"
+          ></img>
+          <video
+            src="file-protocol://getMediaFile/Users/suboptimaleng/Desktop/orb/steve_jobs_demo.mp4"
+            className="w-80"
+            controls
+          ></video>
           <div className="border rounded p-2 mb-4">Learn React</div>
           <div className="flex w-full place-items-center justify-center space-x-2 mb-2">
             <div

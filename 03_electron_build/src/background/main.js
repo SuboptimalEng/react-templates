@@ -1,5 +1,5 @@
 // import { app, BrowserWindow } from 'electron';
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, protocol } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
@@ -17,6 +17,11 @@ function createWindow() {
       contextIsolation: true,
       enableRemoteModule: false,
       preload: path.join(__dirname, 'preload.js'),
+      // SN: Allow renderer to read files from computer in dev mode by disabling security.
+      // SN: This is automatically resolved in Mac DMG as that asks for FS access from user.
+      // webSecurity: isDev ? false : true,
+      webSecurity: true,
+      allowRunningInsecureContent: false,
     },
   });
 
@@ -64,6 +69,21 @@ ipcMain.on('test', (event, payload) => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow();
+
+  // SN: No need to intercept file protocol with web security enabled?
+  // if (isDev) {
+  //   protocol.interceptFileProtocol('file', (request, callback) => {
+  //     const pathname = decodeURIComponent(request.url.replace('file:///', ''));
+  //     callback(pathname);
+  //   });
+  // }
+
+  protocol.registerFileProtocol('file-protocol', (request, callback) => {
+    const url = decodeURIComponent(
+      request.url.replace('file-protocol://getMediaFile/', '')
+    );
+    callback(url);
+  });
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
