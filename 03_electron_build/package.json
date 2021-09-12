@@ -1,5 +1,6 @@
 {
   "name": "00_template",
+  "productName": "Template",
   "version": "0.1.0",
   "private": true,
   "main": "src/background/main.js",
